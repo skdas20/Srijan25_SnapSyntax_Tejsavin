@@ -1,0 +1,830 @@
+/* Global Styles */
+:root {
+    --primary-color: #0a192f;
+    --secondary-color: #112240;
+    --accent-color: #9d4edd; /* Keep violet accent */
+    --text-color: #ffffff; /* Default text to white for navbar links */
+    --heading-color: #ffffff; /* Headings remain white */
+    --navbar-bg: rgba(211, 211, 211, 0.85); /* Lighter greyish-white, slightly transparent */
+    --contact-btn-bg: #000000; /* Black contact button */
+    --planet-gradient: linear-gradient(to right, #c0c0c0 50%, #ffc0cb 90%); /* Silvery to pinkish */
+    --cv-btn-bg: #8A2BE2; /* Violet CV button */
+    --gradient: linear-gradient(to right, #000000 70%, #9d4edd); /* Keep original gradient if needed elsewhere */
+    --button-gradient: linear-gradient(to right, #9d4edd, #6a00ff); /* Keep original button gradient if needed elsewhere */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Updated background: Black fading to violet on the right */
+    background: linear-gradient(to right, #000000 67%, var(--accent-color));
+    color: var(--text-color);
+    line-height: 1.6;
+    /* Ensure gradient covers the full height */
+    min-height: 100vh;
+}
+
+/* Navbar Styles - Updated for oval shape */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--navbar-bg); /* Use lighter greyish background */
+    backdrop-filter: blur(8px); /* Adjust blur */
+    z-index: 1000;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+}
+
+.logo {
+    color: #333; /* Darker logo text on light navbar */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: #333; /* Darker link text on light navbar */
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.theme-toggle {
+    cursor: pointer;
+    color: #333; /* Darker theme toggle icon */
+}
+
+/* New Contact Button Style */
+.contact-btn {
+    background-color: var(--contact-btn-bg);
+    color: var(--heading-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 2rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+}
+
+
+/* Home Section */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.planets {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Updated Planet Styles */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.85; /* More solid */
+    box-shadow: 0 0 60px rgba(200, 200, 255, 0.3); /* Soft glow */
+    background: var(--planet-gradient); /* Silvery-pinkish gradient */
+}
+
+/* Styles for the single big planet */
+.big-planet {
+    width: 450px; /* Slightly smaller to fit better */
+    height: 450px;
+    top: 15%;
+    right: 10%; /* Shifted left */
+    animation: float-big 25s infinite ease-in-out;
+}
+
+/* Styles for the single small planet */
+.small-planet {
+    width: 120px; /* Slightly smaller */
+    height: 120px;
+    top: 12%; /* Adjust position relative to big planet */
+    right: 40%; /* Shifted left */
+    opacity: 0.9; /* More solid */
+    animation: float-small 15s infinite ease-in-out;
+}
+
+/* Removed old planet styles (.planet1, .planet2, etc.) */
+
+
+/* Updated Animations for new planets */
+@keyframes float-big {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-30px, 30px) rotate(8deg); }
+}
+
+@keyframes float-small {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -15px) rotate(-12deg); }
+}
+
+/* Removed old float animations (float1, float2, float4, float5, float6, float7) */
+/* Keep float3 if used elsewhere, otherwise remove */
+@keyframes float3 {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(-20px, 20px); }
+}
+
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.home-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; /* Reduced margin */
+}
+
+/* New Download CV Button Style */
+.download-cv-btn {
+    display: inline-block; /* Or block if needed */
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    background-color: var(--cv-btn-bg); /* Violet color */
+    color: white;
+    text-decoration: none;
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    /* line-height: 120px; Remove fixed line-height for flex */
+    font-weight: bold;
+    position: absolute; /* Position relative to home section */
+    bottom: 25%; /* Moved up slightly */
+    right: 30%; /* Move towards the right, near planet */
+    z-index: 5; /* Ensure it's above planets */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    display: flex; /* Align icon and text */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0 1.5rem; /* Adjust padding for icon */
+    /* line-height: normal; Removed */
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.5); /* Enhanced shadow */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+}
+
+.download-cv-btn:hover {
+    transform: scale(1.08); /* Slightly larger hover effect */
+    box-shadow: 0 12px 25px rgba(138, 43, 226, 0.7);
+    background-color: #6a00ff; /* Darker violet on hover */
+}
+
+.download-cv-btn i { /* Style for the icon */
+    font-size: 1.2em; /* Adjust icon size if needed */
+}
+
+
+/* Social Links - Updated to only show on home page */
+.social-links {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 100;
+}
+
+.social-links a {
+    color: #333; /* Blackish social icons */
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(-5px);
+}
+
+/* Removed old CV styles */
+
+
+/* About Section - Updated with arrow design */
+.about {
+    min-height: 100vh;
+    padding: 100px 5%;
+    background: var(--primary-color); /* Dark background */
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid var(--primary-color);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.laptop-container {
+    position: relative;
+    max-width: 300px; /* Smaller laptop */
+    margin: 0 auto;
+    margin-bottom: 3rem; /* Add space for the ball */
+}
+
+.laptop-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 10px;
+    transform: rotate(-5deg);
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.laptop-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 16 / 9; /* Enforce landscape aspect ratio */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+/* Shiny Ball Style */
+.shiny-ball {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #c0c0c0); /* Silvery gradient */
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px; /* Position below the container */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.about-text h2 {
+    color: var(--accent-color); /* Violet heading */
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-flex; /* Align arrow nicely */
+    align-items: center;
+}
+
+/* Arrow Style */
+.heading-arrow {
+    color: var(--accent-color); /* Match heading color */
+    margin-left: 1rem;
+    font-size: 1.5rem; /* Adjust size */
+    font-weight: bold;
+}
+
+/* Projects Section - Updated for zigzag layout with connections */
+.projects {
+    padding: 120px 5% 100px;
+    position: relative;
+    background: var(--primary-color); /* Dark background */
+}
+
+.projects h2 {
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative; /* Needed for absolute positioning of the cross */
+}
+
+/* Style for the top-right cross icon */
+.project-title-cross {
+    position: absolute;
+    top: 10px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    font-size: 1.5rem; /* Adjust size */
+    color: var(--text-color); /* Or accent color */
+    cursor: pointer; /* Optional */
+    transition: color 0.3s;
+}
+
+.project-title-cross:hover {
+    color: var(--accent-color); /* Optional hover effect */
+}
+
+/* Style for the middle-left cross icon */
+.project-middle-cross {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust position */
+    transform: translateY(-50%);
+    font-size: 1.8rem; /* Adjust size */
+    color: var(--text-color);
+    opacity: 0.5; /* Make it subtle */
+    z-index: 0; /* Behind cards */
+}
+
+
+.projects-grid {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--secondary-color);
+    border-radius: 15px;
+    overflow: visible; /* Allow title to overflow */
+    transition: transform 0.3s;
+    width: 45%;
+    margin-bottom: 120px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative; /* Needed for absolute positioning of title */
+    padding-top: 30px; /* Add padding to make space for overlapping title */
+}
+
+.project-card:nth-child(odd) {
+    float: left;
+    clear: both;
+}
+
+.project-card:nth-child(even) {
+    float: right;
+    clear: both;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-line {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: -1;
+}
+
+.project-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0; /* Keep top corners rounded */
+}
+
+.project-card h3 {
+    color: var(--heading-color);
+    background: var(--secondary-color); /* Keep card background */
+    padding: 0.4rem 0.8rem; /* Slightly smaller padding */
+    border-radius: 6px; /* Slightly smaller radius */
+    position: absolute;
+    top: 50%; /* Align middle */
+    right: 15px; /* Position to the right corner */
+    transform: translateY(-50%); /* Center vertically */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure title is above image */
+    /* width: auto; /* Let content determine width */
+    text-align: right; /* Align text to the right */
+    font-size: 0.9rem; /* Smaller title font */
+}
+
+/* Style for project date - now positioned below title */
+.project-date {
+    color: var(--text-color);
+    font-size: 0.7rem; /* Smaller date font */
+    font-style: italic;
+    display: block; /* Ensure it takes its own line */
+    margin-top: 0.2rem; /* Space below title */
+}
+
+.project-card p { /* Style for the main description - Add padding top */
+    padding: 1.5rem 1.5rem 1rem; /* Add padding top to clear title */
+    font-size: 0.9rem;
+}
+/* Removed duplicated lines below */
+
+.project-link {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Skills Section - Updated for small boxes */
+.skills {
+    padding: 100px 5%;
+    background: var(--primary-color); /* Dark background */
+}
+
+.skills h2 {
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--primary-color);
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-info {
+    display: flex;
+    align-items: center;
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-right: 0.8rem;
+}
+
+.skill-item h3 {
+    color: var(--heading-color);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 0.8rem;
+}
+
+/* Contact Section - Updated with planetary design and violet form */
+.contact {
+    padding: 120px 5% 100px;
+    position: relative;
+    overflow: hidden;
+    background: var(--primary-color); /* Dark background */
+}
+
+/* Styles for Decorative Arcs in Contact Section */
+.contact-arc {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.arc1 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: -100px;
+    border-color: transparent transparent var(--accent-color) var(--accent-color);
+    transform: rotate(45deg);
+}
+
+.arc2 {
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    left: -150px;
+    border-color: transparent transparent var(--accent-color) var(--accent-color);
+    transform: rotate(55deg);
+    opacity: 0.2;
+}
+
+.arc3 {
+    width: 400px;
+    height: 400px;
+    top: 150px;
+    left: -200px;
+    border-color: transparent transparent var(--accent-color) var(--accent-color);
+    transform: rotate(65deg);
+    opacity: 0.1;
+}
+
+
+.contact h2 {
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-orbital {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed var(--accent-color);
+    opacity: 0.2;
+}
+
+.orbital1 {
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 60s linear infinite;
+}
+
+.orbital2 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 40s linear infinite reverse;
+}
+
+.orbital3 {
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.contact-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.contact-form {
+    /* background: var(--accent-color); Removed background */
+    padding: 0; /* Remove padding if background is gone */
+    border-radius: 0; /* Remove border-radius if background is gone */
+    box-shadow: none; /* Remove shadow if background is gone */
+}
+
+/* Style for new labels */
+.contact-form label {
+    display: block;
+    color: var(--heading-color); /* White label text */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--secondary-color); /* Add subtle border */
+    border-radius: 8px;
+    color: var(--text-color); /* Adjust text color if needed */
+    background: var(--secondary-color); /* Give inputs a background */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+.contact-form button {
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.contact-form button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix any weird light mode issues */
+/* Removed [data-theme="light"] .download-cv */
+
+/* Remove light theme override for contact form background */
+/* [data-theme="light"] .contact-form { ... } */
+
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+    background: #ffffff; /* Lighter background for inputs in light mode */
+    color: #333333; /* Darker text for inputs in light mode */
+    border: 1px solid #ccc; /* Light mode border */
+}
+
+[data-theme="light"] .contact-form label {
+    color: #333333; /* Darker labels in light mode */
+}
+
+[data-theme="light"] .contact-form button {
+    color: white;
+}
+
+[data-theme="light"] .contact-form button {
+    background: #333;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .project-card {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none !important;
+    }
+    
+    .project-line {
+        left: 60px;
+    }
+    
+    .project-dot {
+        left: 60px;
+    }
+    
+    /* Removed .cv-container styles from media query */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        width: 95%;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .home-content h1 {
+        font-size: 3rem;
+    }
+    
+    .about-content,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        width: 85%;
+    }
+    
+    .social-links {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 2rem;
+    }
+    
+    .social-links a {
+        margin: 0 1rem;
+    }
+    
+    .small-planet {
+        display: none;
+    }
+}
+
+/* Light Theme Fixes */
+[data-theme="light"] {
+    --primary-color: #f5f5f5;
+    --secondary-color: #e5e5e5;
+    --text-color: #333333;
+    --heading-color: #000000;
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(245, 245, 245, 0.95);
+}
+
+[data-theme="light"] .nav-links a {
+    color: #333; /* Ensure dark text in light mode */
+}
+
+[data-theme="light"] .logo {
+    color: #333; /* Ensure dark logo in light mode */
+}
+
+[data-theme="light"] .theme-toggle {
+    color: #333; /* Ensure dark theme toggle in light mode */
+}
+
+/* Fix the project layout after adding floats */
+.projects-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Ensure social links properly hide on other sections */
+.social-links {
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+/* Add shiny effect to the nav links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">John Doe</div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Project</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">My Skills</a>
+            <button class="contact-btn">Contact</button> <!-- Added Contact Button -->
+        </div>
+        <div class="theme-toggle">
+             <!-- Assuming Light/Dark refers to theme toggle -->
+            <i class="fas fa-sun"></i> <!-- Light Mode Icon -->
+             <i class="fas fa-moon" style="display: none;"></i> <!-- Dark Mode Icon (initially hidden) -->
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="planets">
+            <!-- Reduced to one big and one small planet -->
+            <div class="planet big-planet"></div>
+            <div class="planet small-planet"></div>
+        </div>
+        <div class="home-content">
+            <h1>John Doe</h1>
+            <!-- Updated Paragraph -->
+            <p>I'm a passionate and creative web developer dedicated to building beautiful, functional, and user-centric digital experiences. Let's bring your ideas to life!</p>
+            <!-- Moved CV Download Button here & Added Icon -->
+            <a href="path/to/your/cv.pdf" class="download-cv-btn" download>
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+
+        <!-- Removed CV Container -->
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="laptop-container">
+                <!-- Removed duplicate laptop image -->
+                <img src="laptop.jpeg" alt="Laptop">
+                <!-- Added Shiny Ball Element -->
+                <div class="shiny-ball"></div>
+            </div>
+            <div class="about-text">
+                <!-- Added Arrow Span -->
+                <h2>About Me <span class="heading-arrow">&rarr;</span></h2>
+                <p>I am a passionate web developer with expertise in creating modern and responsive websites. With a strong foundation in front-end development and a keen eye for design, I strive to build engaging user experiences that leave a lasting impression.</p>
+                <p>My journey in web development started several years ago, and I've been continuously learning and improving my skills to stay at the forefront of technology trends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <!-- Added Cross Icon to Title -->
+        <h2>My Projects <i class="fas fa-times project-title-cross"></i></h2>
+        <!-- Added Middle-Left Cross Icon -->
+        <i class="fas fa-times project-middle-cross"></i>
+        <div class="projects-grid">
+            <div class="project-line"></div>
+            
+            <div class="project-card">
+                <div class="project-dot" style="top: 80px;"></div>
+                <img src="project1.jpeg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p class="project-date">April 2025</p> <!-- Added Date -->
+                <p>A responsive e-commerce website built with React and Node.js. Features include user authentication, payment processing, and product management.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-dot" style="top: 200px;"></div>
+                <img src="project2.avif" alt="Project 2">
+                <h3>Project 2</h3>
+                <p class="project-date">March 2025</p> <!-- Added Date -->
+                <p>A social media dashboard with analytics and real-time data visualization using D3.js and Firebase.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-dot" style="top: 320px;"></div>
+                <img src="project3.webp" alt="Project 3">
+                <h3>Project 3</h3>
+                <p class="project-date">February 2025</p> <!-- Added Date -->
+                <p>A mobile-first weather application that uses geolocation and weather APIs to provide accurate forecasts.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-dot" style="top: 440px;"></div>
+                <img src="project4.jpeg" alt="Project 4">
+                <h3>Project 4</h3>
+                <p class="project-date">January 2025</p> <!-- Added Date -->
+                <p>A portfolio website template with customizable themes and content management system.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-figma"></i>
+                    <h3>Figma</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <i class="fab fa-sass"></i>
+                    <h3>Sass</h3>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <!-- Added Decorative Arcs -->
+        <div class="contact-arc arc1"></div>
+        <div class="contact-arc arc2"></div>
+        <div class="contact-arc arc3"></div>
+
+        <h2>Contact Me</h2>
+
+        <!-- Orbital Elements -->
+        <div class="contact-orbital orbital1"></div>
+        <div class="contact-orbital orbital2"></div>
+        <div class="contact-orbital orbital3"></div>
+        
+        <!-- Adjusted Contact Form Structure -->
+        <div class="contact-container">
+            <form class="contact-form"> <!-- Keep class for potential structure styling, remove background in CSS -->
+                <label for="name">Your Name</label> <!-- Added Labels -->
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Enter your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
