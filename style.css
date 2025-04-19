@@ -1,9 +1,9 @@
 /* Global Styles */
 :root {
-    --primary-color: #0a192f;
-    --secondary-color: #112240;
+    --primary-color: #000000; /* Changed to pure black */
+    --secondary-color: #1a1a1a; /* Slightly lighter dark grey for contrast */
     --accent-color: #9d4edd; /* Keep violet accent */
-    --text-color: #ffffff; /* Default text to white for navbar links */
+    --text-color: #e0e0e0; /* Slightly off-white for better readability */
     --heading-color: #ffffff; /* Headings remain white */
     --navbar-bg: rgba(211, 211, 211, 0.85); /* Lighter greyish-white, slightly transparent */
     --contact-btn-bg: #000000; /* Black contact button */
@@ -21,10 +21,11 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px; /* Increased base font size */
     /* Updated background: Black fading to violet on the right */
     background: linear-gradient(to right, #000000 67%, var(--accent-color));
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7; /* Slightly increased line height */
     /* Ensure gradient covers the full height */
     min-height: 100vh;
 }
@@ -238,7 +239,7 @@ body {
 .about {
     min-height: 100vh;
     padding: 100px 5%;
-    background: var(--primary-color); /* Dark background */
+    background: #000000; /* Black background */
     position: relative;
 }
 
@@ -264,9 +265,9 @@ body {
 
 .laptop-container {
     position: relative;
-    max-width: 300px; /* Smaller laptop */
+    max-width: 750px; /* Even larger laptop */
     margin: 0 auto;
-    margin-bottom: 3rem; /* Add space for the ball */
+    margin-bottom: 4rem; /* Keep space for the ball */
 }
 
 .laptop-container::before {
@@ -291,12 +292,12 @@ body {
 
 /* Shiny Ball Style */
 .shiny-ball {
-    width: 60px;
-    height: 60px;
+    width: 70px; /* Slightly larger ball */
+    height: 70px;
     background: radial-gradient(circle at 30% 30%, #ffffff, #c0c0c0); /* Silvery gradient */
     border-radius: 50%;
     position: absolute;
-    bottom: -30px; /* Position below the container */
+    bottom: -45px; /* Position further below the container */
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -311,6 +312,12 @@ body {
     align-items: center;
 }
 
+.about-text p {
+    font-size: 1.25rem; /* Final increase for about paragraph */
+    color: var(--text-color); /* Ensure correct color */
+}
+
+
 /* Arrow Style */
 .heading-arrow {
     color: var(--accent-color); /* Match heading color */
@@ -323,7 +330,7 @@ body {
 .projects {
     padding: 120px 5% 100px;
     position: relative;
-    background: var(--primary-color); /* Dark background */
+    background: #000000; /* Black background */
 }
 
 .projects h2 {
@@ -401,8 +408,11 @@ body {
     background: var(--accent-color);
     left: 50%;
     transform: translateX(-50%);
-    top: 0;
-    z-index: -1;
+    top: 80px; /* Start below the title */
+    height: calc(100% - 80px); /* Adjust height */
+    z-index: 0; /* Ensure it's behind dots */
+    opacity: 0.8; /* Make it more visible */
+    width: 5px; /* Slightly thicker */
 }
 
 .project-dot {
@@ -413,6 +423,8 @@ body {
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1; /* Ensure dots are above the line */
+    border: 2px solid var(--primary-color); /* Add border to make dots stand out */
 }
 
 .project-card img {
@@ -463,7 +475,7 @@ body {
 /* Skills Section - Updated for small boxes */
 .skills {
     padding: 100px 5%;
-    background: var(--primary-color); /* Dark background */
+    background: #000000; /* Black background */
 }
 
 .skills h2 {
@@ -485,7 +497,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--primary-color);
+    background: var(--secondary-color); /* Use secondary color for visibility */
     padding: 1.2rem;
     border-radius: 10px;
     text-align: left;
@@ -524,7 +536,7 @@ body {
     padding: 120px 5% 100px;
     position: relative;
     overflow: hidden;
-    background: var(--primary-color); /* Dark background */
+    background: #000000; /* Black background */
 }
 
 /* Styles for Decorative Arcs in Contact Section */
@@ -771,11 +783,101 @@ body {
 
 /* Light Theme Fixes */
 [data-theme="light"] {
-    --primary-color: #f5f5f5;
-    --secondary-color: #e5e5e5;
-    --text-color: #333333;
-    --heading-color: #000000;
+    --primary-color: #f5f5f5; /* Light grey primary */
+    --secondary-color: #ffffff; /* White secondary */
+    --text-color: #333333; /* Dark text */
+    --heading-color: #000000; /* Black headings */
+    --accent-color: #9d4edd; /* Keep accent */
+    --navbar-bg: rgba(245, 245, 245, 0.9); /* Slightly more opaque light navbar */
+    --contact-btn-bg: #555; /* Dark grey contact button */
+    --cv-btn-bg: #8A2BE2; /* Keep CV button color */
 }
+
+/* Invert section backgrounds for light theme */
+[data-theme="light"] body {
+     /* Keep gradient for home page in light theme? No, override below */
+     background: var(--primary-color); /* Light background for body */
+}
+/* Specific light theme override for home */
+[data-theme="light"] .home {
+    background: linear-gradient(to right, #f5f5f5 67%, #e6d1ff); /* Light grey to light violet */
+}
+[data-theme="light"] .home h1,
+[data-theme="light"] .home p {
+    color: #333; /* Dark text on light home */
+}
+[data-theme="light"] .planet {
+     opacity: 0.6; /* Make planets lighter in light mode */
+     box-shadow: 0 0 40px rgba(157, 78, 221, 0.2);
+}
+
+
+[data-theme="light"] .about,
+[data-theme="light"] .projects,
+[data-theme="light"] .skills,
+[data-theme="light"] .contact {
+    background: var(--secondary-color); /* White background for sections */
+}
+
+/* Adjust text colors for sections in light theme */
+[data-theme="light"] .about-text h2,
+[data-theme="light"] .heading-arrow {
+    color: var(--accent-color); /* Keep accent for About Me */
+}
+[data-theme="light"] .about-text p,
+[data-theme="light"] .projects h2,
+[data-theme="light"] .project-title-cross,
+[data-theme="light"] .project-middle-cross,
+[data-theme="light"] .project-card h3,
+[data-theme="light"] .project-date,
+[data-theme="light"] .project-card p,
+[data-theme="light"] .skills h2,
+[data-theme="light"] .skill-item h3,
+[data-theme="light"] .contact h2,
+[data-theme="light"] .contact-form label {
+    color: var(--text-color); /* Use dark text color */
+}
+
+/* Adjust card/item backgrounds for light theme */
+[data-theme="light"] .project-card,
+[data-theme="light"] .skill-item,
+[data-theme="light"] .project-card h3 {
+    background: var(--primary-color); /* Light grey background for cards/items */
+    color: var(--text-color); /* Ensure text inside is dark */
+}
+[data-theme="light"] .skill-item i {
+     color: var(--accent-color); /* Keep accent for icons */
+}
+[data-theme="light"] .skill-item h3 {
+    color: var(--text-color); /* Dark text for skill names */
+}
+
+
+/* Adjust input/textarea for light theme */
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+    background: #ffffff; /* White background for inputs */
+    color: #333333; /* Darker text for inputs */
+    border: 1px solid #ccc; /* Light mode border */
+}
+[data-theme="light"] .contact-form input::placeholder,
+[data-theme="light"] .contact-form textarea::placeholder {
+    color: #888; /* Lighter placeholder text */
+}
+
+/* Adjust button colors for light theme */
+[data-theme="light"] .contact-btn {
+    background-color: var(--contact-btn-bg);
+    color: #ffffff; /* White text on dark button */
+}
+[data-theme="light"] .contact-form button {
+    background: #555; /* Dark grey send button */
+    color: #ffffff;
+}
+[data-theme="light"] .social-links a {
+    color: #555; /* Slightly lighter dark for social links */
+}
+
 
 [data-theme="light"] .navbar {
     background: rgba(245, 245, 245, 0.95);
